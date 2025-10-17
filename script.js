@@ -1,5 +1,7 @@
 // Smooth scrolling for anchor links
 document.addEventListener('DOMContentLoaded', function() {
+    // Создание эффекта частиц
+    createParticleEffect();
     // Add smooth scrolling to all links
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
@@ -209,6 +211,77 @@ document.addEventListener('DOMContentLoaded', function() {
         body.loaded {
             opacity: 1;
         }
+        
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            animation: particleFloat 8s linear infinite;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
     `;
     document.head.appendChild(loadedStyle);
 });
+
+// Функция создания эффекта частиц
+function createParticleEffect() {
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        setTimeout(() => {
+            createParticle();
+        }, i * 200);
+    }
+    
+    // Создаем новые частицы каждые 3 секунды
+    setInterval(createParticle, 3000);
+}
+
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    
+    // Случайная позиция по горизонтали
+    particle.style.left = Math.random() * window.innerWidth + 'px';
+    
+    // Случайный размер
+    const size = Math.random() * 3 + 2;
+    particle.style.width = size + 'px';
+    particle.style.height = size + 'px';
+    
+    // Случайный цвет
+    const colors = ['#8b5cf6', '#7c3aed', '#6d28d9', '#a78bfa'];
+    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+    
+    // Случайная задержка анимации
+    particle.style.animationDelay = Math.random() * 2 + 's';
+    
+    document.body.appendChild(particle);
+    
+    // Удаляем частицу после анимации
+    setTimeout(() => {
+        if (particle.parentNode) {
+            particle.parentNode.removeChild(particle);
+        }
+    }, 8000);
+}
