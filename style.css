@@ -526,42 +526,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.2rem;
 }
 
-/* Footer */
-.footer {
-    background: var(--text-dark);
-    color: var(--white);
-    padding: 40px 0;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.social-links {
-    display: flex;
-    gap: 20px;
-}
-
-.social-link {
-    width: 40px;
-    height: 40px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.social-link:hover {
-    transform: translateY(-3px);
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -600,10 +564,6 @@ h1, h2, h3, h4, h5, h6 {
         gap: 20px;
     }
     
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
     
     .container {
         padding: 0 15px;
