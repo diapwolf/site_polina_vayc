@@ -155,14 +155,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
 }
 
-.image-container::before {
-    content: '🎤';
-    font-size: 4rem;
-    color: var(--light-gray);
-    position: absolute;
-    z-index: 1;
-    opacity: 0.7;
-}
+/* Fallback иконка скрыта, так как у нас есть реальное фото */
 
 .profile-photo {
     width: 100%;
@@ -172,15 +165,11 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.3s ease;
     position: relative;
     z-index: 2;
+    filter: brightness(1.1) contrast(1.05);
 }
 
 .profile-photo:hover {
     transform: scale(1.05);
-}
-
-/* Скрыть fallback иконку когда фото загружено */
-.profile-photo:not([src=""]) ~ .image-container::before {
-    display: none;
 }
 
 .image-glow {
