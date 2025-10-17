@@ -180,7 +180,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-strong), var(--shadow-glow);
     position: relative;
     z-index: 2;
-    animation: pulse 3s ease-in-out infinite, rotate 20s linear infinite;
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     border: 3px solid var(--primary-color);
     background: var(--soft-gray);
     display: flex;
@@ -198,7 +198,6 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
     background: var(--gradient-accent);
     z-index: -1;
-    animation: rotate 10s linear infinite reverse;
     opacity: 0.7;
 }
 
@@ -254,9 +253,17 @@ h1, h2, h3, h4, h5, h6 {
         transform: scale(1);
         box-shadow: var(--shadow-strong), var(--shadow-glow);
     }
+    25% {
+        transform: scale(1.08);
+        box-shadow: var(--shadow-medium), 0 0 50px var(--primary-color);
+    }
     50% {
-        transform: scale(1.05);
-        box-shadow: var(--shadow-medium), 0 0 40px var(--primary-color);
+        transform: scale(1.12);
+        box-shadow: var(--shadow-medium), 0 0 60px var(--primary-color);
+    }
+    75% {
+        transform: scale(1.08);
+        box-shadow: var(--shadow-medium), 0 0 50px var(--primary-color);
     }
 }
 
